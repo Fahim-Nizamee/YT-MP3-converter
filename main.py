@@ -58,7 +58,7 @@ def download(token, filename):
     decoded_filename = urllib.parse.unquote(filename)
     download_path = f'./static/downloads/{token}/{slugify(decoded_filename)}.mp3'
     return send_file(download_path, as_attachment=True)
-
+    
 
 def delete_folders_with_finished_txt():
     base_directory = './static/downloads/'
@@ -71,4 +71,4 @@ def delete_folders_with_finished_txt():
                 shutil.rmtree(folder_path)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
