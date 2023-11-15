@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <form class="w-75 container form-control p-5 shadow" action="/convert" method="post">
+        <label class="form-label" for="video_url">Video URL:</label>
+        <input class="form-control" type="text" name="video_url" placeholder="https://www.youtube.com/watch?v=asfgs" required>
+        <br>
+        <button class="btn btn-outline-warning shadow" type="submit">Convert</button>
+    </form>
+</div>
+
+{% endblock %}

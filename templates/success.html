@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="w-75 container form-control p-5 shadow">
+        <h2 class="text-success">Conversion Successful!</h2>
+        <label class="form-label">Your MP3 file is ready for download. Click the link below:</label>
+        <br>
+        <a class="link-primary" href="{{ download_link }}">Download MP3</a>
+        <br><br>
+        <div class="text-end">
+           <a href="/">Go back</a> 
+        </div>
+        
+    </div>
+</div>
+{% endblock %}
