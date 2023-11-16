@@ -3,5 +3,4 @@ pydub
 python-slugify
 pytube
 urllib3
-secrets
 urllib
