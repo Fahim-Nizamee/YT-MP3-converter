@@ -39,11 +39,9 @@ def convert():
         with open(f'{download_directory}/finished.txt', 'w'):
             pass
 
-        # Download video asynchronously
         future = executor.submit(download_video, video_url, download_directory)
         video_title = future.result()
 
-        # Convert to MP3 asynchronously
         mp4_path = f'{download_directory}/{video_title}.mp4'
         mp3_path = f'{download_directory}/{video_title}.mp3'
         executor.submit(convert_to_mp3, mp4_path, mp3_path)

@@ -1,5 +1,7 @@
-Flask==3.0.0
-pydub==0.25.1
-python-slugify==8.0.1
-pytube==15.0.0
-urllib3==2.1.0
+Flask
+pydub
+python-slugify
+pytube
+urllib3
+secrets
+urllib
