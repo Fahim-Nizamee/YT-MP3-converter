@@ -8,7 +8,7 @@ import shutil
 app = Flask(__name__)
 
 def update_youtube_dl():
-    subprocess.run(['youtube-dl', '--update'])
+    pass
 
 def download_video(video_url, download_directory):
     subprocess.run(['youtube-dl', '--format', 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best', '--extract-audio', '--audio-format', 'mp3', '-o', f'{download_directory}/%(title)s.%(ext)s', video_url])
