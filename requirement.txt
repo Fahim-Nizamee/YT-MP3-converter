@@ -3,3 +3,4 @@ pydub
 python-slugify
 pytube
 urllib3
+gunicorn

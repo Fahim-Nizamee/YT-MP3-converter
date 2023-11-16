@@ -69,4 +69,4 @@ def delete_folders_with_finished_txt():
                 shutil.rmtree(folder_path)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
