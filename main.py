@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, send_file
+from flask import Flask, render_template, request, send_file,current_app
 from pytube import YouTube
 from pydub import AudioSegment
 from slugify import slugify
@@ -34,7 +34,7 @@ def convert():
 
     try:
         download_token = secrets.token_urlsafe(16)
-        download_directory = f'./static/downloads/{download_token}'
+        download_directory = f'{current_app.root_path}/static/downloads/{download_token}'
         os.makedirs(download_directory)
         with open(f'{download_directory}/finished.txt', 'w'):
             pass
@@ -54,12 +54,12 @@ def convert():
 @app.route('/download/<token>/<filename>')
 def download(token, filename):
     decoded_filename = urllib.parse.unquote(filename)
-    download_path = f'./static/downloads/{token}/{slugify(decoded_filename)}.mp3'
+    download_path = f'{current_app.root_path}/static/downloads/{token}/{slugify(decoded_filename)}.mp3'
     return send_file(download_path, as_attachment=True)
     
 
 def delete_folders_with_finished_txt():
-    base_directory = './static/downloads/'
+    base_directory = f'{current_app.root_path}/static/downloads/'
     if os.path.exists(base_directory):
         for folder_name in os.listdir(base_directory):
             folder_path = os.path.join(base_directory, folder_name)
