@@ -39,12 +39,21 @@ def convert():
         with open(f'{download_directory}/finished.txt', 'w'):
             pass
 
-        future = executor.submit(download_video, video_url, download_directory)
-        video_title = future.result()
-
+        video_title = download_video(video_url, download_directory)
+        
         mp4_path = f'{download_directory}/{video_title}.mp4'
         mp3_path = f'{download_directory}/{video_title}.mp3'
-        executor.submit(convert_to_mp3, mp4_path, mp3_path)
+
+        # Download the video
+        
+        # Convert the video to MP3
+        convert_to_mp3(mp4_path, mp3_path)
+        # future = executor.submit(download_video, video_url, download_directory)
+        
+
+        # mp4_path = f'{download_directory}/{video_title}.mp4'
+        # mp3_path = f'{download_directory}/{video_title}.mp3'
+        # executor.submit(convert_to_mp3, mp4_path, mp3_path)
         time.sleep(2)
         return render_template('success.html', download_link=f'/download/{download_token}/{video_title}')
 
