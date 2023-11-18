@@ -5,3 +5,4 @@ pytube
 urllib3
 gunicorn
 flask_sqlalchemy
+requests
